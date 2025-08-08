@@ -2,7 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import 'dotenv/config'; // <-- ADD THIS LINE AT THE TOP
+import 'dotenv/config'; 
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -10,15 +10,15 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const port = 3000;
 
-// The key is now securely read from your .env file
-const API_KEY = process.env.API_KEY; // <-- CHANGE THIS LINE
+
+const API_KEY = process.env.API_KEY; 
 
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${API_KEY}`;
 
-// Check if the API key was loaded correctly
+
 if (!API_KEY) {
     console.error("Error: API_KEY not found. Please create a .env file and add your API_KEY to it.");
-    process.exit(1); // Stop the server if the key is missing
+    process.exit(1); 
 }
 
 app.use(express.static(__dirname));

@@ -1,4 +1,4 @@
-/* General Setup and Theming */
+
 :root {
     --primary-bg: #1a1a2e;
     --secondary-bg: #16213e;
@@ -44,7 +44,6 @@ body {
     height: 100vh;
 }
 
-/* Sidebar Styling */
 .sidebar {
     width: 240px;
     background-color: var(--sidebar-bg);
@@ -97,7 +96,7 @@ body {
     align-items: center;
 }
 
-/* Theme Switcher */
+
 #theme-switcher {
     display: flex;
     align-items: center;
@@ -110,21 +109,21 @@ body {
 [data-theme="light"] #theme-switcher .fa-sun { display: block; }
 
 
-/* Main Content & Panels */
+
 .main-content {
     flex-grow: 1;
-    display: grid; /* Use grid to layer panels */
+    display: grid; 
 }
 
 .panel {
     grid-area: 1 / 1;
-    display: none; /* Hide panels by default */
+    display: none; 
     flex-direction: column;
     height: 100vh;
 }
 
 .panel.active {
-    display: flex; /* Show the active panel */
+    display: flex; 
 }
 
 .panel-header {
@@ -145,7 +144,7 @@ body {
     margin-top: 40px;
 }
 
-/* Chat Container Specifics */
+
 .chat-container {
     width: 100%;
     height: 100%;
@@ -213,7 +212,6 @@ body {
 }
 
 
-/* Chat Input */
 .chat-input {
     display: flex;
     padding: 20px;

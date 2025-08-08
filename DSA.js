@@ -1,26 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Chat elements
     const chatForm = document.getElementById('chat-form');
     const userInput = document.getElementById('user-input');
     const chatBox = document.getElementById('chat-box');
     
-    // Feature elements
     const themeSwitcher = document.getElementById('theme-switcher');
     const queryCountElement = document.getElementById('query-count');
     const navItems = document.querySelectorAll('.nav-item[data-panel]'); // Select only panel-switching items
     const panels = document.querySelectorAll('.panel');
     const historyContent = document.getElementById('history-content');
 
-    // --- NEW: Elements for the New Chat functionality ---
     const newChatBtn = document.getElementById('new-chat-btn');
     const chatNavItem = document.getElementById('chat-nav-item'); // To easily make chat active
     const chatPanel = document.getElementById('chat-panel');
 
-    // State management
     let queryCount = 0;
     let chatHistory = [];
 
-    // --- THEME MANAGEMENT (No changes) ---
     const applyTheme = (theme) => {
         document.documentElement.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
@@ -36,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
     applyTheme(savedTheme);
 
 
-    // --- PANEL NAVIGATION (Slight change to the selector) ---
     navItems.forEach(item => {
         item.addEventListener('click', () => {
             const panelId = item.getAttribute('data-panel') + '-panel';
@@ -45,33 +39,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function showPanel(panelId, activeNavItem) {
-        // Remove active class from all nav items and panels
         document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
         panels.forEach(panel => panel.classList.remove('active'));
 
-        // Add active class to the target item and panel
         activeNavItem.classList.add('active');
         document.getElementById(panelId).classList.add('active');
     }
     
-    // --- NEW: NEW CHAT BUTTON LOGIC ---
     newChatBtn.addEventListener('click', () => {
-        // 1. Clear the visual chat box
         chatBox.innerHTML = '';
 
-        // 2. Add the initial welcome message back
         addMessage('Hello! I am your advanced Data Structures and Algorithms instructor. Ask me anything about DSA!', 'assistant');
 
-        // 3. Reset the query counter
         queryCount = 0;
         queryCountElement.innerText = '0';
 
-        // 4. Ensure the chat panel is the active view
         showPanel('chat-panel', chatNavItem);
     });
 
 
-    // --- CHAT FUNCTIONALITY (No changes) ---
     chatForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const userMessage = userInput.value.trim();
@@ -121,7 +107,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // --- HISTORY MANAGEMENT (No changes) ---
     function addToHistory(question, answer) {
         chatHistory.unshift({ question, answer });
         renderHistory();
