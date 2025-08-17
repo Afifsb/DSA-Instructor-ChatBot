@@ -5,12 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const themeSwitcher = document.getElementById('theme-switcher');
     const queryCountElement = document.getElementById('query-count');
-    const navItems = document.querySelectorAll('.nav-item[data-panel]'); // Select only panel-switching items
+    const navItems = document.querySelectorAll('.nav-item[data-panel]'); 
     const panels = document.querySelectorAll('.panel');
     const historyContent = document.getElementById('history-content');
 
     const newChatBtn = document.getElementById('new-chat-btn');
-    const chatNavItem = document.getElementById('chat-nav-item'); // To easily make chat active
+    const chatNavItem = document.getElementById('chat-nav-item'); 
     const chatPanel = document.getElementById('chat-panel');
 
     let queryCount = 0;
